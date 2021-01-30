@@ -37,12 +37,6 @@ if brave.hp > 0
   loop do
     brave.attack(monster)
     monster.hp = 0 if monster.hp <= 0
-    puts <<~TEXT
-    *=*=*=*=*=*=*=*=*=*=*
-  【#{brave.name}】HP: #{brave.hp}
-  【#{monster.name}】HP: #{monster.hp}
-    *=*=*=*=*=*=*=*=*=*=*
-    TEXT
     monster.attack(brave)
     brave.hp 0 if brave.hp <= 0
     puts <<~TEXT
@@ -51,11 +45,17 @@ if brave.hp > 0
   【#{monster.name}】HP: #{monster.hp}
     *=*=*=*=*=*=*=*=*=*=*
     TEXT
-    break if monster.hp <= 0
+  #   puts <<~TEXT
+  #   *=*=*=*=*=*=*=*=*=*=*
+  # 【#{brave.name}】HP: #{brave.hp}
+  # 【#{monster.name}】HP: #{monster.hp}
+  #   *=*=*=*=*=*=*=*=*=*=*
+  #   TEXT
+    break if monster.hp == 0
   end
 end
 
-if monster.hp <= 0
+if monster.hp == 0
     puts "#{monster.name}をやっつけた！"
     else
     puts "#{barve.name}は死んでしまった。"
